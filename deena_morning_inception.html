@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff0e8">
+<title>Deena's Morning Loop ♡</title>
+<style>
+:root{--ink:#59465d;--pink:#ff8fba;--rose:#ffd7e5;--cream:#fff8ef;--lav:#c9b9ec;--green:#b8d6ac}
+*{box-sizing:border-box}body{margin:0;background:#fff0e8;color:var(--ink);font-family:"Trebuchet MS",system-ui,sans-serif}
+button{font:inherit;cursor:pointer;border:0}
+.page{min-height:100vh;overflow:hidden;background:linear-gradient(180deg,#fff0e6,#f7e3ed 60%,#e8e4fa)}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px clamp(14px,4vw,42px)}
+.brand{font-size:11px;font-weight:1000;letter-spacing:.16em;color:#a36389}
+.pill,.btn{border-radius:999px;padding:10px 14px;background:#fffaf4;color:#936181;box-shadow:0 5px 18px #9f718b20;font-weight:900;font-size:12px}
+main{width:min(1050px,100%);margin:auto;padding:4px clamp(13px,3vw,28px) 34px}
+.intro{text-align:center;padding:8px 10px 20px}.kicker{font-size:10px;font-weight:1000;letter-spacing:.23em;text-transform:uppercase;color:#b27698}
+h1{font:700 clamp(45px,8vw,78px)/1 "Brush Script MT","Segoe Script",cursive;color:#a85d88;margin:12px 0;text-shadow:2px 3px #fff}
+.intro p{max-width:600px;margin:auto;font-size:14px;line-height:1.7;color:#826d83}
+.stage{height:clamp(440px,60vw,590px);position:relative;overflow:hidden;border:5px solid #fffaf4;border-radius:28px;background:linear-gradient(#b9d9e9 0%,#f8d8d5 58%,#bdd9ad 100%);box-shadow:0 20px 60px #a2788b2b;isolation:isolate;transition:filter .7s,transform .7s}
+.stage.night{background:linear-gradient(#33385f,#87739d 56%,#c5a9c3)}
+.sun{position:absolute;right:11%;top:8%;width:62px;height:62px;border-radius:50%;background:#fff1b9;box-shadow:0 0 0 14px #fff1b92b,0 0 40px #fff1b988;transition:all 1s}
+.stage.night .sun{background:#fff3d0;width:43px;height:43px;box-shadow:0 0 24px #fff1d488}
+.cloud{position:absolute;top:15%;left:8%;width:80px;height:25px;border-radius:25px;background:#fffaf3;opacity:.85;animation:cloud 18s linear infinite}
+.cloud:before,.cloud:after{content:"";position:absolute;bottom:4px;background:inherit;border-radius:50%}.cloud:before{width:34px;height:34px;left:10px}.cloud:after{width:40px;height:40px;left:32px}
+@keyframes cloud{to{transform:translateX(700px)}}
+.hillback{position:absolute;bottom:17%;left:-10%;width:120%;height:34%;border-radius:50% 50% 0 0;background:#b4d2aa}.hill{position:absolute;bottom:0;left:-10%;width:120%;height:25%;border-radius:50% 50% 0 0;background:#92bd91}
+.house{position:absolute;right:7%;bottom:19%;width:145px;height:130px;background:#f8c5ac;border:4px solid #fff2df;border-radius:8px 8px 3px 3px;box-shadow:inset -12px 0 #eaa9a4}
+.roof{position:absolute;top:-58px;left:-20px;width:177px;height:75px;background:#b97888;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.door{position:absolute;bottom:0;left:52px;width:42px;height:73px;border:4px solid #fff0dd;border-bottom:0;background:#9d7182;border-radius:22px 22px 0 0}
+.window{position:absolute;top:24px;left:14px;width:34px;height:34px;background:#fff2b9;border:4px solid #fff0dd;border-radius:6px;box-shadow:0 0 14px #fff2b9}.window.two{left:auto;right:14px}
+.tag{position:absolute;top:15px;left:15px;padding:9px 13px;border-radius:999px;background:#fffaf0e8;color:#9c6285;font-size:10px;font-weight:1000;letter-spacing:.07em;z-index:6}
+.bubble{position:absolute;right:15px;top:15px;max-width:47%;padding:10px 13px;background:#fffaf3;border:2px solid white;border-radius:18px;color:#89617e;font-size:12px;font-weight:800;z-index:7;box-shadow:0 5px 14px #75556b18;transition:opacity .3s}
+.bubble:after{content:"";position:absolute;bottom:-8px;left:20px;border-width:9px 9px 0;border-style:solid;border-color:#fffaf3 transparent transparent}
+.deena{position:absolute;z-index:4;left:43%;bottom:12%;width:150px;height:260px;transform:translateX(-50%);transition:left 1s ease,bottom .7s ease,filter .5s;filter:drop-shadow(0 8px 5px #77566b24)}
+.name{position:absolute;top:-16px;left:50%;transform:translateX(-50%);white-space:nowrap;border-radius:999px;padding:5px 11px;background:#ff82b5;color:#fff;border:2px solid #fff;font-size:12px;font-weight:1000;box-shadow:0 4px 12px #c866952b;z-index:10}
+.hair{position:absolute;left:32px;top:18px;width:90px;height:104px;border-radius:50% 50% 43% 43%;background:#51364b;border:3px solid #3d293e}.hair:after{content:"";position:absolute;left:-5px;top:53px;width:100px;height:93px;border-radius:38%;background:linear-gradient(90deg,#493047,#67435c,#39263d)}
+.face{position:absolute;z-index:2;left:42px;top:29px;width:72px;height:82px;border-radius:48%;background:#ffd1b7;border:2px solid #efb29f}
+.bangs{position:absolute;z-index:3;left:36px;top:20px;width:84px;height:42px;background:#51364b;border-radius:55% 45% 30% 30%;transform:rotate(-5deg)}.bangs:after{content:"";position:absolute;right:2px;top:17px;width:28px;height:28px;background:#51364b;border-radius:0 0 90% 15%;transform:rotate(15deg)}
+.eye{position:absolute;z-index:4;top:43px;width:9px;height:14px;border-radius:50%;background:#493143}.eye:after{content:"";position:absolute;top:2px;left:2px;width:3px;height:4px;background:#fff;border-radius:50%}.eye.l{left:58px}.eye.r{left:91px}
+.blush{position:absolute;z-index:4;top:66px;width:15px;height:7px;background:#f28e9c88;border-radius:50%}.blush.l{left:48px}.blush.r{left:96px}
+.smile{position:absolute;z-index:4;left:76px;top:69px;width:13px;height:8px;border-bottom:2px solid #b85d75;border-radius:50%}
+.bow{position:absolute;z-index:5;left:91px;top:15px;width:27px;height:16px;background:#ff8dbb;border-radius:70% 20% 70% 20%;transform:rotate(20deg);box-shadow:0 0 0 2px #ffd6e5}.bow:after{content:"";position:absolute;left:12px;top:3px;width:15px;height:13px;background:#ffb4d0;border-radius:20% 70% 20% 70%;transform:rotate(35deg)}
+.bodygirl{position:absolute;z-index:3;left:35px;top:107px;width:88px;height:75px;border:3px solid #fff1e6;border-radius:25px 25px 14px 14px;background:#f3a6b8}.bodygirl:after{content:"♡";position:absolute;left:33px;top:18px;color:#fff5f2;font-size:21px}
+.arm{position:absolute;z-index:2;top:117px;width:20px;height:57px;border-radius:14px;background:#ffd1b7;transform-origin:top}.arm.l{left:24px;transform:rotate(18deg)}.arm.r{left:111px;transform:rotate(-20deg)}
+.skirt{position:absolute;z-index:3;left:30px;top:170px;width:98px;height:47px;background:#9e9acb;border:3px solid #e8e1ff;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%)}
+.leg{position:absolute;z-index:2;top:209px;width:23px;height:38px;background:#ffd1b7;border-radius:10px}.leg.l{left:49px}.leg.r{left:87px}.shoe{position:absolute;z-index:3;top:239px;width:34px;height:15px;background:#fff5ed;border:2px solid #e7afc3;border-radius:13px 8px 6px 6px}.shoe.l{left:34px}.shoe.r{left:82px}
+.prop{position:absolute;z-index:6;opacity:0;transition:opacity .4s,transform .4s;transform:scale(.7);font-size:29px}.prop.show{opacity:1;transform:scale(1)}
+.bed{position:absolute;left:7%;bottom:14%;width:250px;height:115px;background:#f8d8e2;border:5px solid #fff5f0;border-radius:22px 22px 8px 8px;box-shadow:0 9px 0 #c58fa9;opacity:0;transition:opacity .5s}.bed:before{content:"";position:absolute;left:12px;top:9px;width:65px;height:36px;border-radius:14px;background:#fff8ef;box-shadow:75px 0 #fff8ef}.bed.show{opacity:1}
+.clock{position:absolute;left:20%;bottom:42%;z-index:5;background:#55425d;color:#fff2c8;border:3px solid #fff5eb;border-radius:10px;padding:8px 10px;font: bold 15px monospace;box-shadow:0 5px 10px #654c5d30;opacity:0;transition:opacity .4s}.clock.show{opacity:1}
+.journal{position:absolute;left:12%;bottom:28%;z-index:6;width:160px;padding:13px 12px;background:#fff4d7;border:2px solid #c79c74;border-radius:4px 8px 8px 4px;box-shadow:4px 5px #a97b7055;transform:rotate(-5deg) scale(.7);opacity:0;transition:opacity .5s,transform .5s}.journal.show{opacity:1;transform:rotate(-5deg) scale(1)}.journal b{font-size:10px;letter-spacing:.14em;color:#a67a83}.scribble{font:italic 11px/1.5 "Comic Sans MS",cursive;color:#5c4555;margin-top:7px}
+.kitchen-prop{position:absolute;z-index:5;left:10%;bottom:22%;font-size:48px;opacity:0;transform:translateY(10px);transition:.5s}.kitchen-prop.show{opacity:1;transform:translateY(0)}
+.puppy{position:absolute;z-index:6;left:18%;bottom:14%;font-size:54px;filter:drop-shadow(0 4px 3px #66445b25);opacity:0;transition:.5s;animation:none}.puppy.show{opacity:1}.puppy.play{animation:puppyHop .45s ease-in-out infinite alternate}@keyframes puppyHop{to{transform:translateY(-12px) rotate(4deg)}}
+.laptop{position:absolute;z-index:6;right:10%;bottom:18%;width:160px;opacity:0;transform:translateY(10px) scale(.9);transition:.5s}.laptop.show{opacity:1;transform:translateY(0) scale(1)}.screen{height:90px;border:6px solid #66516f;border-bottom-width:9px;border-radius:10px 10px 3px 3px;background:linear-gradient(130deg,#182747,#405b80 48%,#f2c4bb);position:relative;overflow:hidden;box-shadow:0 0 20px #8e7bc155}.screen:before{content:"K-PAX";position:absolute;left:10px;top:9px;color:#fff;font-weight:1000;letter-spacing:.2em;font-size:15px;text-shadow:0 0 8px #fff}.screen:after{content:"✦  ✧  ·  ✦";position:absolute;bottom:8px;right:8px;color:#fff3c9;font-size:17px}.base{margin:auto;width:178px;height:9px;background:#d9c7d5;clip-path:polygon(5% 0,95% 0,100% 100%,0 100%);border-radius:0 0 5px 5px}
+.phone{position:absolute;z-index:7;right:18%;bottom:22%;font-size:42px;opacity:0;transform:rotate(-15deg) scale(.7);transition:.5s}.phone.show{opacity:1;transform:rotate(0) scale(1)}
+.wa{position:absolute;z-index:9;right:4%;bottom:15%;width:min(275px,70%);border:3px solid #fff;border-radius:18px;background:#e7f5e8;box-shadow:0 12px 30px #49334f35;overflow:hidden;opacity:0;transform:translateY(25px) scale(.8);transition:opacity .7s,transform .7s;pointer-events:none}.wa.show{opacity:1;transform:translateY(0) scale(1)}
+.wa-head{padding:10px 12px;background:#168c73;color:white;font-size:12px;font-weight:900;display:flex;gap:8px;align-items:center}.avatar{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#d8f1df;color:#168c73;font-size:15px}.wa-body{padding:12px;background:radial-gradient(#d6e9d5 1px,transparent 1px);background-size:12px 12px;min-height:96px}.wa-time{font-size:9px;color:#78927f;text-align:center;margin-bottom:8px}.wa-msg{display:inline-block;max-width:95%;background:#fff;border-radius:4px 12px 12px 12px;padding:10px;color:#4e5f56;font-size:12px;line-height:1.5;box-shadow:0 2px 4px #4e5f5615}.wa-msg small{display:block;text-align:right;color:#98a79d;font-size:9px;margin-top:5px}
+.inception{position:absolute;inset:0;z-index:10;display:grid;place-items:center;padding:22px;background:#29203bbf;backdrop-filter:blur(5px);opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s}.inception.show{opacity:1;visibility:visible}.inception-card{width:min(450px,100%);padding:20px;border:2px solid #fff4f1;border-radius:22px;background:#fff5ed;box-shadow:0 0 0 10px #ffffff20,0 20px 80px #160c2b66;text-align:center;transform:scale(.75) rotate(-2deg);transition:transform .8s}.inception.show .inception-card{transform:scale(1) rotate(0)}.mini-label{font-size:10px;font-weight:1000;letter-spacing:.16em;color:#a66a91}.inception h2{font:700 34px "Brush Script MT","Segoe Script",cursive;color:#a85d88;margin:9px 0}.mini-stage{height:180px;position:relative;overflow:hidden;border-radius:14px;background:linear-gradient(#b9d9e9,#f8d8d5 60%,#bdd9ad);border:3px solid #fff;box-shadow:inset 0 0 0 1px #ffffffa0}.mini-sun{position:absolute;right:13%;top:12%;width:27px;height:27px;border-radius:50%;background:#fff1b9}.mini-house{position:absolute;right:10%;bottom:18%;width:50px;height:43px;background:#f8c5ac;border:2px solid white}.mini-house:before{content:"";position:absolute;left:-7px;top:-20px;border-left:31px solid transparent;border-right:31px solid transparent;border-bottom:22px solid #b97888}.mini-deena{position:absolute;left:43%;bottom:10%;font-size:61px;filter:drop-shadow(0 3px 2px #72556b55);animation:miniBob 1.5s ease-in-out infinite alternate}@keyframes miniBob{to{transform:translateY(-5px)}}.mini-puppy{position:absolute;left:17%;bottom:9%;font-size:34px}.mini-caption{font-size:11px;color:#8c6d83;margin:10px 0}.mini-whatsapp{display:none;margin:10px auto 0;padding:9px 12px;border-radius:12px;background:#e0f4e5;color:#416e57;font-size:11px;line-height:1.5}.mini-whatsapp.show{display:block}.endline{font:700 clamp(35px,7vw,52px) "Brush Script MT","Segoe Script",cursive;color:#ff77ad;text-shadow:0 0 20px #ffb7d5;display:none}.endline.show{display:block}
+.progress-wrap{display:flex;align-items:center;gap:12px;max-width:650px;margin:16px auto 0}.progress{height:8px;flex:1;border-radius:99px;background:#fff9;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#ff8fba,#e4b6ee);transition:width .6s}.count{font-size:11px;color:#8c6b87;white-space:nowrap}.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}.btn.primary{background:linear-gradient(120deg,#ff9fc7,#ffe0ac);color:#75435f}
+footer{text-align:center;padding:0 15px 24px;font-size:10px;letter-spacing:.12em;color:#a17b9c}
+@media(max-width:540px){.stage{height:480px}.deena{transform:translateX(-50%) scale(.86);transform-origin:bottom center}.house{right:1%;transform:scale(.78);transform-origin:bottom right}.bubble{max-width:52%;font-size:11px}.journal{width:140px;left:5%}.laptop{right:4%;transform:scale(.82);transform-origin:bottom right}.laptop.show{transform:scale(.82)}.wa{right:3%;bottom:12%;width:72%}.clock{left:5%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<header><div class="brand">✿ DEENA'S LITTLE UNIVERSE</div><button class="pill" id="music">♫ Play cute BGM</button></header>
+<main>
+<section class="intro"><div class="kicker">A soft little slice of life</div><h1>One morning, two realities ♡</h1><p>Wake up, write a very honest journal entry, make breakfast, hang out with a puppy, watch <i>K-PAX</i>… and discover that the story has been playing inside itself all along.</p></section>
+<section class="stage" id="stage">
+<div class="sun"></div><div class="cloud"></div><div class="hillback"></div><div class="hill"></div>
+<div class="house"><div class="roof"></div><div class="window"></div><div class="window two"></div><div class="door"></div></div>
+<div class="tag" id="sceneTitle">07:00 AM · WAKING UP</div><div class="bubble" id="bubble">Five more minutes… 🥱</div>
+<div class="bed" id="bed"></div><div class="clock" id="clock">07:00</div>
+<div class="journal" id="journal"><b>MY PRIVATE JOURNAL ✎</b><div class="scribble">I wish I could slap you now or break your bones, vidhun.</div></div>
+<div class="kitchen-prop" id="breakfast">🍳🥞</div>
+<div class="puppy" id="puppy">🐶🎀</div>
+<div class="laptop" id="laptop"><div class="screen"></div><div class="base"></div></div>
+<div class="phone" id="phone">📱</div>
+<div class="wa" id="wa"><div class="wa-head"><div class="avatar">V</div><div>Vidhun · WhatsApp</div></div><div class="wa-body"><div class="wa-time">TODAY · 08:42 AM</div><div class="wa-msg">Hey Deena 😄<br>What are you up to?<small>08:42 ✓✓</small></div></div></div>
+<div class="deena" id="deena"><div class="name">deena ♡</div><div class="hair"></div><div class="bow"></div><div class="face"></div><div class="bangs"></div><div class="eye l"></div><div class="eye r"></div><div class="blush l"></div><div class="blush r"></div><div class="smile"></div><div class="arm l"></div><div class="arm r"></div><div class="bodygirl"></div><div class="skirt"></div><div class="leg l"></div><div class="leg r"></div><div class="shoe l"></div><div class="shoe r"></div><div class="prop" id="phoneProp">📱</div><div class="prop" id="pen">🖊️</div></div>
+<div class="inception" id="inception"><div class="inception-card"><div class="mini-label">A STORY INSIDE THE STORY</div><h2>Wait… this looks familiar.</h2><div class="mini-stage"><div class="mini-sun"></div><div class="mini-house"></div><div class="mini-puppy">🐶</div><div class="mini-deena">👧🏻</div></div><div class="mini-caption">The same morning. The same girl. The same little universe.</div><div class="mini-whatsapp" id="miniWhatsapp">Vidhun: Hey Deena 😄 What are you up to?<br><b>And somehow… this animation is playing on her phone.</b></div><div class="endline" id="endline">Deena, you are in the loop ♡</div><button class="btn primary" id="replay">Wake up again ↻</button></div></div>
+</section>
+<div class="progress-wrap"><div class="progress"><div class="fill" id="fill"></div></div><div class="count" id="count">Dream sequence waiting… ✨</div></div>
+<div class="controls"><button class="btn primary" id="start">Start the morning ✨</button><button class="btn" id="skip">Jump to the message 📱</button></div>
+</main><footer>SOFT SUNLIGHT · HONEST JOURNALS · ONE VERY CONFUSED UNIVERSE ✿</footer>
+</div>
+<script>
+(()=> {
+const $=id=>document.getElementById(id);
+const deena=$('deena'),bubble=$('bubble'),title=$('sceneTitle'),puppy=$('puppy'),stage=$('stage');
+let timers=[],audio=null,master=null,musicOn=false,musicTimer=null,note=0;
+function later(fn,ms){timers.push(setTimeout(fn,ms))}
+function clear(){timers.forEach(clearTimeout);timers=[]}
+function say(t){bubble.textContent=t;bubble.style.opacity=1}
+function scene(t,b,left){title.textContent=t;say(b);if(left)deena.style.left=left}
+function show(id,on=true){$(id).classList.toggle('show',on)}
+function progress(p,t){$('fill').style.width=p+'%';$('count').textContent=t}
+function musicStart(){const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;if(!audio){audio=new AC();master=audio.createGain();master.gain.value=.0001;master.connect(audio.destination)}audio.resume();musicOn=true;$('music').textContent='♫ Mute cute BGM';master.gain.setTargetAtTime(.11,audio.currentTime,.3);if(musicTimer)return;const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,659.25,783.99,987.77,880,783.99,659.25,587.33];function tone(f,t,d,v,type='sine'){const o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.value=f;o.connect(g);g.connect(master);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.04);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.start(t);o.stop(t+d+.03)}musicTimer=setInterval(()=>{if(!musicOn)return;const t=audio.currentTime+.02,i=note%notes.length;tone(notes[i],t,.65,.06);if(note%4===0)tone([261.63,329.63,293.66,220][(note/4)%4|0],t,1.1,.025,'triangle');if(note%2)tone(notes[(i+4)%notes.length]*2,t+.12,.3,.01);note++},430)}
+function musicStop(){musicOn=false;$('music').textContent='♫ Play cute BGM';if(master&&audio)master.gain.setTargetAtTime(.0001,audio.currentTime,.12)}
+$('music').onclick=()=>musicOn?musicStop():musicStart();
+function reset(){clear();['bed','clock','journal','breakfast','puppy','laptop','phone','wa'].forEach(id=>show(id,false));show('phoneProp',false);show('pen',false);show('inception',false);show('miniWhatsapp',false);show('endline',false);stage.classList.remove('night');deena.style.opacity=1;deena.style.left='43%';deena.style.bottom='12%';deena.style.filter='';$('start').disabled=false;$('start').textContent='Start the morning ✨'}
+function start(){reset();musicStart();$('start').disabled=true;$('start').textContent='Morning in progress…';show('bed');scene('07:00 AM · WAKING UP','Mmm… five more minutes… 🥱','40%');progress(7,'The dream begins…');
+later(()=>{scene('07:02 AM · BIG YAWN','Yaaaaawn! Why is morning so early? 🥱','42%');deena.style.transform='translateX(-50%) rotate(-3deg) scale(1.02)';progress(12,'Waking up, slowly')},1400);
+later(()=>{deena.style.transform='translateX(-50%)';show('clock');scene('07:05 AM · CHECK THE ALARM','SEVEN?! This clock is my enemy. ⏰','45%');progress(19,'Alarm clock inspected')},2900);
+later(()=>{show('journal');show('pen');scene('07:08 AM · PRIVATE JOURNAL','Dear journal… I am choosing peace. Mostly. ✍️','31%');progress(28,'Writing down some feelings')},4600);
+later(()=>{show('journal',false);show('pen',false);scene('07:10 AM · JOURNAL CLOSED','There. Very therapeutic. Nobody saw that. 😇','42%');progress(35,'Journal safely put away')},6900);
+later(()=>{show('breakfast');scene('07:25 AM · BREAKFAST DUTY','Breakfast first. Emotional chaos later. 🍳','57%');progress(44,'Cooking breakfast')},8500);
+later(()=>{show('breakfast',false);show('puppy');$('puppy').classList.add('play');scene('07:45 AM · PUPPY BREAK','Who is the goodest little potato? YOU ARE! 🐶','34%');progress(55,'Puppy playtime!')},10400);
+later(()=>{$('puppy').classList.remove('play');show('laptop');scene('08:05 AM · K-PAX TIME','Just one movie scene… probably. 👀','59%');progress(67,'Watching K-PAX on the laptop')},12400);
+later(()=>{scene('08:42 AM · PHONE BUZZES','Hmm? Who is texting me now? 📱','48%');show('phone');progress(77,'A new notification appears')},14800);
+later(()=>{show('wa');scene('WHATSAPP · MESSAGE FROM VIDHUN','Vidhun?! At this hour? Let me see… 💬','48%');progress(85,'Opening Vidhun’s message')},16300);
+later(()=>{stage.classList.add('night');show('inception');show('miniWhatsapp');scene('SYSTEM ERROR · REALITY RECURSION','Wait… the animation is playing inside the animation?! 🌀','48%');progress(94,'Reality has folded in on itself')},18300);
+later(()=>{show('endline');progress(100,'You have reached the loop ♡');$('start').disabled=false;$('start').textContent='Start the morning again ↻'},20500)
+}
+function skip(){reset();musicStart();show('bed');show('laptop');show('phone');show('wa');show('inception');show('miniWhatsapp');show('endline');stage.classList.add('night');scene('SYSTEM ERROR · REALITY RECURSION','The animation is playing inside the animation. 🌀','48%');progress(100,'Loop unlocked ♡')}
+$('start').onclick=start;$('skip').onclick=skip;$('replay').onclick=start;progress(0,'Dream sequence waiting… ✨');
+})();
+</script>
+</body>
+</html>
